@@ -1,11 +1,13 @@
-import React, { useCallback } from 'react';
-import { LogoutOutlined, SettingOutlined, UserOutlined } from '@ant-design/icons';
-import { Avatar, Menu, Spin } from 'antd';
+import React, { useCallback, useState, useEffect } from 'react';
+import {useSelector, useDispatch} from 'dva'
+import { LogoutOutlined, SettingOutlined, UserOutlined,UnorderedListOutlined } from '@ant-design/icons';
+import { Avatar, Menu, Spin, Badge } from 'antd';
 import { history, useModel } from 'umi';
 import { stringify } from 'querystring';
 import HeaderDropdown from '../HeaderDropdown';
 import styles from './index.less';
 import { outLogin } from '@/services/ant-design-pro/api';
+import { getTodoList } from '@/services/todo';
 
 /**
  * 退出登录，并且将当前的 url 保存
@@ -26,6 +28,28 @@ const loginOut = async () => {
 };
 
 const AvatarDropdown = ({ menu }) => {
+
+  const dispatch = useDispatch()
+  
+  
+  useEffect(() => {
+    dispatch({
+      type: 'todo/getTodoList',
+      payload: null
+    })
+  }, [])
+
+  let todoList = useSelector(state => state.todo.todoList)
+  let todoNum = todoList.filter(item => item.status === 1).length
+
+
+  // let [todos, setTodos] = useState(0)
+  // useEffect(async () => {
+  //   const todoList = await getTodoList()
+  //   const todoNum = todoList.filter(item => item.status === 1).length
+  //   setTodos(todoNum)
+  // })
+
   const { initialState, setInitialState } = useModel('@@initialState');
   const onMenuClick = useCallback(
     (event) => {
@@ -79,6 +103,11 @@ const AvatarDropdown = ({ menu }) => {
       )}
       {menu && <Menu.Divider />}
 
+      <Menu.Item key="todo">
+        <UnorderedListOutlined />
+        Todos<Badge count={todoNum} />
+      </Menu.Item>
+      
       <Menu.Item key="logout">
         <LogoutOutlined />
         退出登录
@@ -89,7 +118,9 @@ const AvatarDropdown = ({ menu }) => {
     <HeaderDropdown overlay={menuHeaderDropdown}>
       <span className={`${styles.action} ${styles.account}`}>
         <Avatar size="small" className={styles.avatar} src={currentUser.avatar} alt="avatar" />
-        <span className={`${styles.name} anticon`}>{currentUser.name}</span>
+        <span className={`${styles.name} anticon`}>
+          {currentUser.name}
+          <Badge count={todoNum} offset={ [10,0]} dot={true} /></span>
       </span>
     </HeaderDropdown>
   );

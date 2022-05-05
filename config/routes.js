@@ -13,7 +13,6 @@ export default [
       },
     ],
   },
-
   {
     path: '/admin',
     name: 'admin',
@@ -25,6 +24,18 @@ export default [
         component: './404',
       },
     ],
+  },
+  {
+    name: 'todo',
+    icon: 'UnorderedListOutlined',
+    path: '/todo',
+    component: './Todo',
+  },
+  {
+    name: 'Recommand website',
+    icon: 'smile',
+    path: '/listcardlist',
+    component: './ListCardList',
   },
   {
     component: './404',
