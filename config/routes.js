@@ -38,6 +38,16 @@ export default [
     component: './ListCardList',
   },
   {
+    name: '搜索列表（项目）',
+    icon: 'smile',
+    path: '/listsearchprojects',
+    component: './ListSearchProjects',
+  },
+  {
+    path: '/',
+    redirect: '/todo',
+  },
+  {
     component: './404',
   },
 ];
