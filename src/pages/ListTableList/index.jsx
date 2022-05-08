@@ -182,6 +182,7 @@ const TableList = () => {
               message: '文章名为必填项',
             },
           ]}
+          placeholder="Article Name"
           width="md"
           name="name"
         />
@@ -192,10 +193,11 @@ const TableList = () => {
               message: '文章链接为必填项',
             },
           ]}
+          placeholder="Article Link"
           width="md"
           name="href"
         />
-        <ProFormTextArea width="md" name="desc" />
+        <ProFormTextArea width="md" name="desc" placeholder="Article Description"/>
       </ModalForm>
     </PageContainer>
   );
