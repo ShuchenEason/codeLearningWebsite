@@ -13,6 +13,6 @@
 
 ## 收藏文章
 实现个人收藏文章的录入、删除以及检索功能。通过文章名链接跳转目标文章页。
-[star](./assets/4.png)
-[star2](./assets/5.png)
-[star3](./assets/6.png)
+![star](./assets/4.png)
+![star2](./assets/5.png)
+![star3](./assets/6.png)
