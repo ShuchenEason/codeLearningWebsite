@@ -42,14 +42,6 @@ const AvatarDropdown = ({ menu }) => {
   let todoList = useSelector(state => state.todo.todoList)
   let todoNum = todoList.filter(item => item.status === 1).length
 
-
-  // let [todos, setTodos] = useState(0)
-  // useEffect(async () => {
-  //   const todoList = await getTodoList()
-  //   const todoNum = todoList.filter(item => item.status === 1).length
-  //   setTodos(todoNum)
-  // })
-
   const { initialState, setInitialState } = useModel('@@initialState');
   const onMenuClick = useCallback(
     (event) => {
@@ -60,7 +52,12 @@ const AvatarDropdown = ({ menu }) => {
         loginOut();
         return;
       }
-
+      if (key === 'todo') {
+        history.replace({
+          pathname: '/todo'
+        })
+          return;
+      }
       history.push(`/account/${key}`);
     },
     [setInitialState],
@@ -89,20 +86,6 @@ const AvatarDropdown = ({ menu }) => {
 
   const menuHeaderDropdown = (
     <Menu className={styles.menu} selectedKeys={[]} onClick={onMenuClick}>
-      {menu && (
-        <Menu.Item key="center">
-          <UserOutlined />
-          个人中心
-        </Menu.Item>
-      )}
-      {menu && (
-        <Menu.Item key="settings">
-          <SettingOutlined />
-          个人设置
-        </Menu.Item>
-      )}
-      {menu && <Menu.Divider />}
-
       <Menu.Item key="todo">
         <UnorderedListOutlined />
         Todos<Badge count={todoNum} />

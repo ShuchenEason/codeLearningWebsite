@@ -1,9 +1,9 @@
 let todoList = [
-    { id: 1, title: 'TOdo', status: 0 },
-    { id: 2, title: 'TOdo', status: 1 },
-    { id: 3, title: 'TOdo', status: 2 },
-    { id: 4, title: 'TOdo', status: 1 },
-    { id: 5, title: 'T44do', status: 0},
+    { id: 1, title: '完成样例', status: 0 },
+    { id: 2, title: '未完成样例', status: 1 },
+    { id: 3, title: '取消样例', status: 2 },
+    { id: 4, title: '刷算法', status: 1 },
+    { id: 5, title: '背基础', status: 1},
 ]
 
 export default {

@@ -13,20 +13,20 @@ export default [
       },
     ],
   },
+  // {
+  //   path: '/admin',
+  //   name: 'admin',
+  //   icon: 'crown',
+  //   access: 'canAdmin',
+  //   component: './Admin',
+  //   routes: [
+  //     {
+  //       component: './404',
+  //     },
+  //   ],
+  // },
   {
-    path: '/admin',
-    name: 'admin',
-    icon: 'crown',
-    access: 'canAdmin',
-    component: './Admin',
-    routes: [
-      {
-        component: './404',
-      },
-    ],
-  },
-  {
-    name: 'todo',
+    name: 'Todo',
     icon: 'UnorderedListOutlined',
     path: '/todo',
     component: './Todo',
@@ -38,10 +38,10 @@ export default [
     component: './ListCardList',
   },
   {
-    name: '搜索列表（项目）',
-    icon: 'smile',
-    path: '/listsearchprojects',
-    component: './ListSearchProjects',
+    name: 'Star Article',
+    icon: 'StarOutlined',
+    path: '/listtablelist',
+    component: './ListTableList',
   },
   {
     path: '/',
