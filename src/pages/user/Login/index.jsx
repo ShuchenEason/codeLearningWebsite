@@ -112,7 +112,7 @@ const Login = () => {
                   size: 'large',
                   prefix: <UserOutlined className={styles.prefixIcon} />,
                 }}
-                placeholder='Username: admin or user'
+                placeholder='Username: shuchen'
                 rules={[
                   {
                     required: true,

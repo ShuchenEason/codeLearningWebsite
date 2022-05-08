@@ -119,17 +119,7 @@ export default {
     const { password, username, type } = req.body;
     await waitTime(2000);
 
-    if (password === 'helloworld' && username === 'admin') {
-      res.send({
-        status: 'ok',
-        type,
-        currentAuthority: 'admin',
-      });
-      access = 'admin';
-      return;
-    }
-
-    if (password === 'helloworld' && username === 'user') {
+    if (password === 'helloworld' && username === 'shuchen') {
       res.send({
         status: 'ok',
         type,
@@ -138,17 +128,6 @@ export default {
       access = 'user';
       return;
     }
-
-    if (type === 'mobile') {
-      res.send({
-        status: 'ok',
-        type,
-        currentAuthority: 'admin',
-      });
-      access = 'admin';
-      return;
-    }
-
     res.send({
       status: 'error',
       type,

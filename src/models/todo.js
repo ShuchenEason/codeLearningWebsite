@@ -10,7 +10,6 @@ export default {
     effects: {
         *getTodoList(_, { call, put }) {
             const resData = yield call(getTodoList)
-            console.log(resData);
             yield put({
                 type: 'setTodoList',
                 payload: resData
